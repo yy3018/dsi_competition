@@ -384,6 +384,7 @@ summary {
 <pre><code>## The following object is masked from 'package:base':
 ## 
 ##     date</code></pre>
+<pre class="r"><code>library(shiny)</code></pre>
 <pre class="r"><code>confirm = read.csv(&quot;confirm.csv&quot;) %&gt;% dplyr::select(state,date,confirmed)
 stay_home_time = read.csv(&quot;stay_home_time.csv&quot;) %&gt;% 
   filter(time!=&quot;No&quot; &amp; time!=&quot;Regional&quot;) %&gt;% 
@@ -401,13 +402,14 @@ stay_home_time = read.csv(&quot;stay_home_time.csv&quot;) %&gt;%
 <pre class="r"><code>days = as.Date(as.character(data$date), format=&quot;%Y-%m-%d&quot;)-as.Date(data$time,format = &quot;%Y-%d-%b&quot; )
 days = as.numeric(days)
 
-final = cbind(data,days) %&gt;% filter(days&lt;=12 &amp; days&gt;=-1)
+final = cbind(data,days) %&gt;% filter(days&lt;=12 &amp; days&gt;=-1) 
 
 final2 = 
 final %&gt;%
     group_by(state) %&gt;%
     arrange(date) %&gt;%
-    mutate(diff = confirmed - lag(confirmed, default = first(confirmed))) %&gt;% filter(diff!=0)</code></pre>
+    mutate(diff = confirmed - lag(confirmed, default = first(confirmed)))%&gt;% 
+    filter(days!=-1)</code></pre>
 
 
 
