@@ -401,7 +401,7 @@ stay_home_time = read.csv(&quot;stay_home_time.csv&quot;) %&gt;%
 <pre class="r"><code>days = as.Date(as.character(data$date), format=&quot;%Y-%m-%d&quot;)-as.Date(data$time,format = &quot;%Y-%d-%b&quot; )
 days = as.numeric(days)
 
-final = cbind(data,days) %&gt;% filter(days&lt;=14 &amp; days&gt;=0)
+final = cbind(data,days) %&gt;% filter(days&lt;=12 &amp; days&gt;=0)
 
 final2 = 
 final %&gt;%
