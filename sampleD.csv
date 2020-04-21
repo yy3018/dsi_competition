@@ -1,0 +1,525 @@
+"","new","state","days"
+"1",177,"California",0
+"2",238,"California",1
+"3",162,"California",2
+"4",168,"Illinois",0
+"5",437,"New Jersey",0
+"6",241,"California",3
+"7",296,"Illinois",1
+"8",587,"New Jersey",1
+"9",4073,"New York",0
+"10",462,"California",4
+"11",88,"Connecticut",0
+"12",236,"Illinois",2
+"13",335,"Louisiana",0
+"14",930,"New Jersey",2
+"15",5084,"New York",1
+"16",87,"Ohio",0
+"17",30,"Oregon",0
+"18",224,"Washington",0
+"19",430,"California",5
+"20",203,"Connecticut",1
+"21",36,"Delaware",0
+"22",252,"Illinois",3
+"23",216,"Louisiana",1
+"24",464,"Michigan",0
+"25",831,"New Jersey",3
+"26",17,"New Mexico",0
+"27",4797,"New York",2
+"28",124,"Ohio",1
+"29",19,"Oregon",1
+"30",107,"Washington",1
+"31",6,"West Virginia",1
+"32",460,"California",6
+"33",257,"Connecticut",2
+"34",15,"Delaware",1
+"35",1,"Hawaii",0
+"36",10,"Idaho",0
+"37",328,"Illinois",4
+"38",109,"Indiana",0
+"39",407,"Louisiana",2
+"40",503,"Michigan",1
+"41",727,"New Jersey",4
+"42",13,"New Mexico",1
+"43",5160,"New York",3
+"44",137,"Ohio",2
+"45",56,"Oregon",2
+"46",30,"Vermont",0
+"47",263,"Washington",2
+"48",17,"West Virginia",2
+"49",140,"Wisconsin",0
+"50",901,"California",7
+"51",409,"Colorado",0
+"52",137,"Connecticut",3
+"53",11,"Delaware",2
+"54",4,"Hawaii",1
+"55",55,"Idaho",1
+"56",673,"Illinois",5
+"57",168,"Indiana",1
+"58",509,"Louisiana",3
+"59",549,"Michigan",2
+"60",2474,"New Jersey",5
+"61",7036,"New York",4
+"62",164,"Ohio",3
+"63",50,"Oregon",3
+"64",33,"Vermont",1
+"65",616,"Washington",3
+"66",13,"West Virginia",3
+"67",107,"Wisconsin",1
+"68",758,"California",8
+"69",3,"Colorado",1
+"70",279,"Connecticut",4
+"71",33,"Delaware",3
+"72",11,"Hawaii",2
+"73",59,"Idaho",2
+"74",486,"Illinois",6
+"75",334,"Indiana",2
+"76",440,"Louisiana",4
+"77",789,"Michigan",3
+"78",52,"Minnesota",0
+"79",21,"New Hampshire",0
+"80",1949,"New Jersey",6
+"81",23,"New Mexico",3
+"82",6999,"New York",5
+"83",269,"Ohio",4
+"84",100,"Oregon",4
+"85",26,"Vermont",2
+"86",270,"Washington",4
+"87",24,"West Virginia",4
+"88",198,"Wisconsin",2
+"89",27,"Alaska",0
+"90",438,"California",9
+"91",307,"Colorado",2
+"92",233,"Connecticut",5
+"93",51,"Delaware",4
+"94",43,"Hawaii",3
+"95",29,"Idaho",3
+"96",467,"Illinois",7
+"97",254,"Indiana",3
+"98",571,"Louisiana",5
+"99",1016,"Michigan",4
+"100",45,"Minnesota",1
+"101",20,"Montana",0
+"102",29,"New Hampshire",1
+"103",2299,"New Jersey",7
+"104",72,"New Mexico",4
+"105",7534,"New York",6
+"106",269,"Ohio",5
+"107",63,"Oregon",5
+"108",36,"Rhode Island",0
+"109",27,"Vermont",3
+"110",553,"Washington",5
+"111",20,"West Virginia",5
+"112",129,"Wisconsin",3
+"113",17,"Alaska",1
+"114",757,"California",10
+"115",567,"Colorado",3
+"116",469,"Connecticut",6
+"117",18,"Delaware",5
+"118",47,"Idaho",4
+"119",1105,"Illinois",8
+"120",280,"Indiana",4
+"121",225,"Louisiana",6
+"122",838,"Michigan",5
+"123",62,"Minnesota",2
+"124",25,"Montana",1
+"125",27,"New Hampshire",2
+"126",2262,"New Jersey",8
+"127",29,"New Mexico",5
+"128",7238,"New York",7
+"129",247,"Ohio",6
+"130",69,"Oregon",6
+"131",55,"Rhode Island",1
+"132",24,"Vermont",4
+"133",435,"Washington",6
+"134",17,"West Virginia",6
+"135",109,"Wisconsin",4
+"136",12,"Alaska",2
+"137",1286,"California",11
+"138",4,"Colorado",4
+"139",578,"Connecticut",7
+"140",32,"Delaware",6
+"141",59,"District of Columbia",0
+"142",26,"Hawaii",5
+"143",59,"Idaho",5
+"144",460,"Illinois",9
+"145",273,"Indiana",5
+"146",42,"Kansas",0
+"147",485,"Louisiana",7
+"148",174,"Maryland",0
+"149",1010,"Michigan",6
+"150",73,"Minnesota",3
+"151",17,"Montana",2
+"152",100,"New Hampshire",3
+"153",3250,"New Jersey",9
+"154",7015,"New York",8
+"155",122,"North Carolina",0
+"156",280,"Ohio",7
+"157",58,"Oregon",7
+"158",114,"Rhode Island",2
+"159",21,"Vermont",5
+"160",130,"Virginia",0
+"161",458,"Washington",7
+"162",32,"West Virginia",7
+"163",66,"Wisconsin",5
+"164",5,"Alaska",3
+"165",132,"Arizona",0
+"166",1072,"California",12
+"167",655,"Colorado",5
+"168",557,"Connecticut",8
+"169",55,"Delaware",7
+"170",94,"District of Columbia",1
+"171",29,"Hawaii",6
+"172",175,"Idaho",6
+"173",938,"Illinois",10
+"174",372,"Indiana",6
+"175",62,"Kansas",1
+"176",1212,"Louisiana",8
+"177",247,"Maryland",1
+"178",1117,"Michigan",7
+"179",53,"Minnesota",4
+"180",27,"Montana",3
+"181",43,"New Hampshire",4
+"182",2060,"New Jersey",10
+"183",78,"New Mexico",7
+"184",9170,"New York",9
+"185",222,"North Carolina",1
+"186",266,"Ohio",8
+"187",84,"Oregon",8
+"188",80,"Rhode Island",3
+"189",37,"Vermont",6
+"190",229,"Virginia",1
+"191",509,"Washington",8
+"192",17,"West Virginia",8
+"193",182,"Wisconsin",6
+"194",13,"Alaska",4
+"195",241,"Arizona",1
+"196",16,"Colorado",6
+"197",429,"Connecticut",9
+"198",49,"Delaware",8
+"199",91,"District of Columbia",2
+"200",20,"Hawaii",7
+"201",51,"Idaho",7
+"202",986,"Illinois",11
+"203",406,"Indiana",7
+"204",51,"Kansas",2
+"205",1187,"Louisiana",9
+"206",326,"Maryland",2
+"207",1700,"Michigan",8
+"208",60,"Minnesota",5
+"209",10,"Montana",4
+"210",165,"Nevada",0
+"211",10,"New Hampshire",5
+"212",3559,"New Jersey",11
+"213",25,"New Mexico",8
+"214",8115,"New York",10
+"215",140,"North Carolina",2
+"216",348,"Ohio",9
+"217",46,"Oregon",9
+"218",1046,"Pennsylvania",0
+"219",78,"Rhode Island",4
+"220",28,"Vermont",7
+"221",234,"Virginia",2
+"222",176,"Washington",9
+"223",29,"West Virginia",9
+"224",144,"Wisconsin",7
+"225",11,"Alaska",5
+"226",185,"Arizona",2
+"227",360,"Colorado",7
+"228",267,"Connecticut",10
+"229",25,"Delaware",9
+"230",67,"District of Columbia",3
+"231",32,"Hawaii",8
+"232",210,"Idaho",8
+"233",715,"Illinois",12
+"234",474,"Indiana",8
+"235",68,"Kansas",3
+"236",2725,"Louisiana",10
+"237",73,"Maine",0
+"238",345,"Maryland",3
+"239",1476,"Michigan",9
+"240",53,"Minnesota",6
+"241",33,"Montana",5
+"242",184,"Nevada",1
+"243",112,"New Hampshire",6
+"244",3335,"New Jersey",12
+"245",48,"New Mexico",9
+"246",8558,"New York",11
+"247",302,"North Carolina",3
+"248",354,"Ohio",10
+"249",90,"Oregon",10
+"250",1259,"Pennsylvania",1
+"251",79,"Rhode Island",5
+"252",80,"Tennessee",0
+"253",714,"Texas",0
+"254",17,"Vermont",8
+"255",223,"Virginia",3
+"256",781,"Washington",10
+"257",25,"West Virginia",10
+"258",192,"Wisconsin",8
+"259",14,"Alaska",6
+"260",222,"Arizona",3
+"261",400,"Colorado",8
+"262",1090,"Connecticut",11
+"263",57,"Delaware",10
+"264",104,"District of Columbia",4
+"265",1260,"Florida",0
+"266",483,"Georgia",0
+"267",63,"Hawaii",9
+"268",115,"Idaho",9
+"269",399,"Indiana",9
+"270",76,"Kansas",4
+"271",1148,"Louisiana",11
+"272",56,"Maine",1
+"273",427,"Maryland",4
+"274",1953,"Michigan",10
+"275",46,"Minnesota",7
+"276",181,"Mississippi",0
+"277",2,"Montana",6
+"278",51,"Nevada",2
+"279",146,"New Mexico",10
+"280",10481,"New York",12
+"281",274,"North Carolina",4
+"282",411,"Ohio",11
+"283",73,"Oregon",11
+"284",1302,"Pennsylvania",2
+"285",66,"Rhode Island",6
+"286",54,"Tennessee",1
+"287",665,"Texas",1
+"288",51,"Vermont",9
+"289",306,"Virginia",4
+"290",457,"Washington",11
+"291",21,"West Virginia",11
+"292",264,"Wisconsin",9
+"293",119,"Alabama",0
+"294",14,"Alaska",7
+"295",250,"Arizona",4
+"296",446,"Colorado",9
+"297",362,"Connecticut",12
+"298",143,"Delaware",11
+"299",145,"District of Columbia",5
+"300",1269,"Florida",1
+"301",329,"Georgia",1
+"302",32,"Hawaii",10
+"303",131,"Idaho",10
+"304",516,"Indiana",10
+"305",69,"Kansas",5
+"306",2199,"Louisiana",12
+"307",24,"Maine",2
+"308",367,"Maryland",5
+"309",1481,"Michigan",11
+"310",77,"Minnesota",8
+"311",97,"Mississippi",1
+"312",22,"Montana",7
+"313",228,"Nevada",3
+"314",61,"New Hampshire",8
+"315",235,"North Carolina",5
+"316",427,"Ohio",12
+"317",1874,"Pennsylvania",3
+"318",95,"Rhode Island",7
+"319",255,"Tennessee",2
+"320",833,"Texas",2
+"321",72,"Vermont",10
+"322",395,"Virginia",5
+"323",401,"Washington",12
+"324",45,"West Virginia",12
+"325",18,"Wisconsin",10
+"326",151,"Alabama",1
+"327",14,"Alaska",8
+"328",299,"Arizona",5
+"329",762,"Colorado",10
+"330",80,"Delaware",12
+"331",100,"District of Columbia",6
+"332",813,"Florida",2
+"333",487,"Georgia",2
+"334",20,"Hawaii",11
+"335",56,"Idaho",11
+"336",458,"Indiana",11
+"337",53,"Kansas",6
+"338",14,"Maine",3
+"339",492,"Maryland",6
+"340",1493,"Michigan",12
+"341",70,"Minnesota",9
+"342",183,"Mississippi",2
+"343",21,"Montana",8
+"344",113,"Nevada",4
+"345",81,"New Hampshire",9
+"346",136,"New Mexico",12
+"347",163,"North Carolina",6
+"348",1145,"Pennsylvania",4
+"349",116,"Rhode Island",8
+"350",311,"Tennessee",3
+"351",642,"Texas",3
+"352",51,"Vermont",11
+"353",233,"Virginia",6
+"354",290,"Wisconsin",11
+"355",187,"Alabama",2
+"356",5,"Alaska",9
+"357",246,"Arizona",6
+"358",233,"Colorado",11
+"359",95,"District of Columbia",7
+"360",974,"Florida",3
+"361",667,"Georgia",3
+"362",16,"Hawaii",12
+"363",23,"Idaho",12
+"364",545,"Indiana",12
+"365",98,"Kansas",7
+"366",29,"Maine",4
+"367",428,"Maryland",7
+"368",51,"Minnesota",10
+"369",100,"Mississippi",3
+"370",389,"Missouri",0
+"371",13,"Montana",9
+"372",98,"Nevada",5
+"373",94,"New Hampshire",10
+"374",313,"North Carolina",7
+"375",1538,"Pennsylvania",5
+"376",160,"Rhode Island",9
+"377",169,"Tennessee",4
+"378",834,"Texas",4
+"379",31,"Vermont",12
+"380",238,"Virginia",7
+"381",129,"Wisconsin",12
+"382",217,"Alabama",3
+"383",23,"Alaska",10
+"384",138,"Arizona",7
+"385",246,"Colorado",12
+"386",114,"District of Columbia",8
+"387",1221,"Florida",4
+"388",1508,"Georgia",4
+"389",63,"Kansas",8
+"390",20,"Maine",5
+"391",326,"Maryland",8
+"392",83,"Minnesota",11
+"393",177,"Mississippi",4
+"394",394,"Missouri",1
+"395",20,"Montana",10
+"396",171,"Nevada",6
+"397",337,"North Carolina",8
+"398",1726,"Pennsylvania",6
+"399",147,"Rhode Island",10
+"400",185,"South Carolina",0
+"401",337,"Tennessee",5
+"402",882,"Texas",5
+"403",457,"Virginia",8
+"404",159,"Alabama",4
+"405",13,"Alaska",11
+"406",166,"Arizona",8
+"407",229,"District of Columbia",9
+"408",911,"Florida",5
+"409",1079,"Georgia",5
+"410",134,"Kansas",9
+"411",18,"Maine",6
+"412",1158,"Maryland",9
+"413",85,"Minnesota",12
+"414",88,"Mississippi",5
+"415",79,"Missouri",2
+"416",13,"Montana",11
+"417",135,"Nevada",7
+"418",32,"New Hampshire",12
+"419",200,"North Carolina",9
+"420",1778,"Pennsylvania",7
+"421",221,"Rhode Island",11
+"422",224,"Tennessee",6
+"423",852,"Texas",6
+"424",310,"Virginia",9
+"425",375,"Alabama",5
+"426",9,"Alaska",12
+"427",-18,"Arizona",9
+"428",83,"District of Columbia",10
+"429",908,"Florida",6
+"430",665,"Georgia",6
+"431",70,"Kansas",10
+"432",23,"Maine",7
+"433",656,"Maryland",10
+"434",257,"Mississippi",6
+"435",223,"Missouri",3
+"436",22,"Montana",12
+"437",197,"Nevada",8
+"438",237,"North Carolina",10
+"439",1669,"Pennsylvania",8
+"440",277,"Rhode Island",12
+"441",376,"South Carolina",2
+"442",271,"Tennessee",7
+"443",1431,"Texas",7
+"444",397,"Virginia",10
+"445",244,"Alabama",6
+"446",94,"Arizona",10
+"447",137,"District of Columbia",11
+"448",1167,"Florida",7
+"449",919,"Georgia",7
+"450",1,"Kansas",11
+"451",26,"Maine",8
+"452",783,"Maryland",11
+"453",209,"Mississippi",7
+"454",465,"Missouri",4
+"455",266,"Nevada",9
+"456",229,"North Carolina",11
+"457",1751,"Pennsylvania",9
+"458",274,"South Carolina",3
+"459",257,"Tennessee",8
+"460",897,"Texas",8
+"461",467,"Virginia",11
+"462",270,"Alabama",7
+"463",281,"Arizona",11
+"464",118,"District of Columbia",12
+"465",963,"Florida",8
+"466",674,"Georgia",8
+"467",158,"Kansas",12
+"468",30,"Maine",9
+"469",726,"Maryland",12
+"470",173,"Mississippi",8
+"471",211,"Missouri",5
+"472",-20,"Nevada",10
+"473",389,"North Carolina",12
+"474",1668,"Pennsylvania",10
+"475",144,"South Carolina",4
+"476",241,"Tennessee",9
+"477",918,"Texas",9
+"478",568,"Virginia",12
+"479",346,"Alabama",8
+"480",149,"Arizona",12
+"481",1401,"Florida",9
+"482",293,"Georgia",9
+"483",17,"Maine",10
+"484",139,"Mississippi",9
+"485",161,"Missouri",6
+"486",134,"Nevada",11
+"487",1219,"Pennsylvania",11
+"488",109,"South Carolina",5
+"489",376,"Tennessee",10
+"490",654,"Texas",10
+"491",171,"Alabama",9
+"492",1124,"Florida",10
+"493",863,"Georgia",10
+"494",65,"Maine",11
+"495",161,"Mississippi",10
+"496",246,"Missouri",7
+"497",154,"Nevada",12
+"498",1354,"Pennsylvania",12
+"499",71,"South Carolina",6
+"500",102,"Tennessee",11
+"501",598,"Texas",11
+"502",219,"Alabama",10
+"503",609,"Florida",11
+"504",1263,"Georgia",11
+"505",37,"Maine",12
+"506",145,"Mississippi",11
+"507",231,"Missouri",8
+"508",162,"South Carolina",7
+"509",217,"Tennessee",12
+"510",731,"Texas",12
+"511",122,"Alabama",11
+"512",883,"Florida",12
+"513",409,"Georgia",12
+"514",273,"Mississippi",12
+"515",45,"Missouri",9
+"516",103,"South Carolina",8
+"517",270,"Alabama",12
+"518",383,"Missouri",10
+"519",275,"South Carolina",9
+"520",197,"Missouri",11
+"521",168,"South Carolina",10
+"522",208,"Missouri",12
+"523",149,"South Carolina",11
+"524",129,"South Carolina",12

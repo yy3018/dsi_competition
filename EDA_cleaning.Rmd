@@ -8,19 +8,61 @@ library(tidyverse)
 ```
 
 ```{r}
-features <-  c('state',	'stay_home','traveler_quarantine', 'business_close',	'gathering_ban','school_close',	'bar_res_limits',	'election_postponment', 'emergency_declaration')
-policy <- read_csv("policy.csv", col_names = FALSE)
-colnames(policy) <- features
-write.csv(policy,file = 'policy.csv')
+#features <-  c('state',	'stay_home','traveler_quarantine', 'business_close',	'gathering_ban','school_close',	'bar_res_limits',	'election_postponment', 'emergency_declaration')
+#policy <- read_csv("policy.csv", col_names = TRUE)
+#policy <- policy[,2:10]
+#colnames(policy) <- features
+#policy <- policy %>% select(state:bar_res_limits)
+#write.csv(policy,file = 'policy.csv')
 ```
 
 ```{r}
-us_confirm <- read_csv("us_confirm.csv") %>% select(Province_State, `1/22/20`:`4/19/20`)
-colnames(us_confirm)[1] <- 'state'
-us_confirm  <- us_confirm %>%  group_by(state) %>% summarise_each(funs(sum))
-us_confirm  <- gather(us_confirm,date,confirmed,`1/22/20`:`4/19/20`)
-write.csv(us_confirm,file = 'confirm.csv')
+#us_confirm <- read_csv("us_confirm.csv") %>% select(Province_State, `1/22/20`:`4/19/20`)
+#colnames(us_confirm)[1] <- 'state'
+#us_confirm  <- us_confirm %>%  group_by(state) %>% summarise_each(funs(sum))
+#us_confirm  <- gather(us_confirm,date,confirmed,`1/22/20`:`4/19/20`)
+
+#us_confirm$date <- as.Date(us_confirm$date,"%m/%d/%Y")
+#write.csv(us_confirm,file = 'confirm.csv')
+
+policy <- read_csv("policy.csv", col_names = TRUE)
+confirm <- read_csv("confirm.csv") %>% select(-1)
 ```
+
+```{r}
+p <- ggplot(us_confirm %>% filter(state=='New York'), aes(x=date, y=confirmed)) +
+  geom_line() + 
+  xlab("")
+p
+```
+
+
+
+
+```{r}
+confirm = read.csv("confirm.csv") %>% dplyr::select(state,date,confirmed)
+stay_home_time = read.csv("stay_home_time.csv") %>% 
+  filter(time!="No" & time!="Regional") %>% 
+  filter(state!=c("Kentucky","Massachusetts","Oklahoma")) %>% 
+  mutate(
+     time = paste0("0020-",time)
+  ) 
+data=left_join(x=confirm,y=stay_home_time,by="state",all=T) %>% na.omit()
+days = as.Date(as.character(data$date), format="%Y-%m-%d")-as.Date(data$time,format = "%Y-%d-%b" )
+days = as.numeric(days)
+final = cbind(data,days) %>% filter(days<=12 & days>=-1)
+final2 = 
+final %>%
+    group_by(state) %>%
+    arrange(date) %>%
+    mutate(diff = confirmed - lag(confirmed, default = first(confirmed))) %>% filter(diff!=0)
+
+
+final2 = final2 %>% select(diff,state,days) %>% rename(new = diff)
+write.csv(final2,'sampleD.csv')
+```
+
+
 
 
 
