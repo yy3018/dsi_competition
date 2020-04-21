@@ -3,6 +3,7 @@ library(ggplot2)
 library(gridExtra)
 library(tidyverse)
 library(nlme)
+library(shinythemes)
 
 sampleD <- read_csv("sampleD.csv")[,2:4]
 
@@ -35,7 +36,7 @@ avg_total <- sampleD %>% group_by(state) %>% summarise('AVG' = mean(new),'Total'
 
 u <- fluidPage(
   
-
+  theme = "united",
   titlePanel("Stay-at-Home Order Evaluation"),
 
   fluidRow(
@@ -47,8 +48,7 @@ u <- fluidPage(
   fluidRow(
 
       column(4,plotOutput(outputId = "distPlot")),
-      column(4,plotOutput(outputId = "distPlot2")),
-      column(4,plotOutput(outputId = "distPlot3"))
+      column(4,plotOutput(outputId = "distPlot2"))
       
       
     ),
@@ -56,13 +56,10 @@ u <- fluidPage(
   fluidRow(
     
     column(4,tableOutput(outputId = "tb1")),
-    column(4,tableOutput(outputId = "tb2")),
-    column(4,tableOutput(outputId = "tb3"))
+    column(4,tableOutput(outputId = "tb2"))
     
     
-  )
-  
-)
+  ))
 
 s <- function(input, output) {
   
@@ -72,7 +69,7 @@ s <- function(input, output) {
     
     subdata <- sampleD %>% filter(state==input$states)
     
-    ggplot(data = subdata,aes(x=days,y=new)) + 
+    ggplot(data = subdata,aes(x=days,y=cumsum(new))) + 
       geom_line(color='red')+
       geom_point()
     
@@ -89,35 +86,34 @@ s <- function(input, output) {
   })
   
   
-  output$distPlot3 <- renderPlot({
-    
-    subdata <- sampleD %>% filter(state==input$states)
-    
-    ggplot(data = subdata,aes(x=days,y=new)) + 
-      geom_line(color='red')+
-      geom_point()
-    
-  })
+
   
   # Display statistical output
   
   output$tb1 <- renderTable({
     
     t1 <- table1[table1$state == input$states,]
-    gather(left_join(t1,avg_total,by='state'),statistics,value,time:Total)
-  })
+    gather(left_join(t1,avg_total,by='state'),statistics,value,time:Total) %>% 
+      dplyr::select(-state)
+  },
+  spacing = 'm',  
+  width = '75%', 
+  align = 'c',
+  caption = "Data Summary",
+  caption.placement = getOption("xtable.caption.placement", "top"))
   
   output$tb2 <- renderTable({
-    rm_effect_long[rm_effect_long$state == input$states,]
-  })
-  
-  
-  output$tb3 <- renderTable({
-    rm_effect_long[rm_effect_long$state == input$states,]
-  })
+    rm_effect_long[rm_effect_long$state == input$states,] 
+    
+  } %>% dplyr::select(-state),
+  spacing = 'm',  
+  width = '75%', 
+  align = 'c',
+  caption = "Longitudinal Analysis",
+  caption.placement = getOption("xtable.caption.placement", "top")
+  )
   
 
-  
-  
+
 }
 shinyApp(u,s)

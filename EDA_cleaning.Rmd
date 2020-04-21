@@ -55,12 +55,21 @@ final2 =
 final %>%
     group_by(state) %>%
     arrange(date) %>%
-    mutate(diff = confirmed - lag(confirmed, default = first(confirmed))) %>% filter(diff!=0)
+    mutate(diff = confirmed - lag(confirmed, default = first(confirmed))) %>% filter(days!=-1)
 
 
 final2 = final2 %>% select(diff,state,days) %>% rename(new = diff)
+
+
 write.csv(final2,'sampleD.csv')
 ```
+
+```{r}
+
+
+
+```
+
 
 
 
