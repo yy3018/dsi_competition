@@ -8,22 +8,23 @@ library(tidyverse)
 ```
 
 ```{r}
-myfiles = list.files(path = "data",pattern = ".csv",full.names = F) %>% str_replace(".csv","")
+myfiles = list.files(path = "data/daily322-421",pattern = ".csv",full.names = F) %>% str_replace(".csv","")
 data1 = 
   do.call(rbind,
-          lapply(list.files(path = "data",pattern = ".csv",full.names = T), read.csv))
+          lapply(list.files(path = "data/daily322-421",pattern = ".csv",full.names = T), read.csv))
 
-rows = lapply(list.files(path = "data",pattern = ".csv",full.names = T),function(x){nrow(read.csv(x))})
+rows = lapply(list.files(path = "data/daily322-421",pattern = ".csv",full.names = T),function(x){nrow(read.csv(x))})
 
 date_check=c(rep(myfiles[1:length(myfiles)],rows[1:length(myfiles)]))%>% as.data.frame()
 colnames(date_check) = "date"
 
 ##for data before 3.21
-myfiles2 = list.files(path = "data1",pattern = ".csv",full.names = F) %>% str_replace(".csv","")
+myfiles2 = list.files(path = "data/daily318-321",pattern = ".csv",full.names = F) %>% str_replace(".csv","")
 data2 = 
   do.call(rbind,
-          lapply(list.files(path = "data1",pattern = ".csv",full.names = T), read.csv)) 
-rows2 = lapply(list.files(path = "data1",pattern = ".csv",full.names = T),function(x){nrow(read.csv(x))})
+          lapply(list.files(path = "data/daily318-321",pattern = ".csv",full.names = T), read.csv)) 
+rows2 = lapply(list.files(path = "data/daily318-321",pattern = ".csv",full.names = T),function(x){nrow(read.csv(x))})
+
 date_check2=c(rep(myfiles2[1:length(myfiles2)],rows2[1:length(myfiles2)]))%>% as.data.frame()
 colnames(date_check2) = "date"
 
@@ -61,16 +62,11 @@ days = as.numeric(days)
 
 ## final dataset
 final = cbind(final_all,days) %>% 
-  filter(days<=14 & days>=-1) %>% 
+  filter(days>=-1) %>% 
   select(state,confirm,days) %>%
   mutate(days = as.numeric(days)) %>% 
-  arrange(days) %>% 
-  pivot_wider(
-    values_from = confirm,
-    names_from = days
-  ) %>% 
+  arrange(days)  %>% 
   as.data.frame() %>% 
-  mutate_if(is.numeric , replace_na, replace = 0) %>% 
   pivot_longer(
     -state,
     values_to = "confirm",
@@ -80,13 +76,12 @@ final = cbind(final_all,days) %>%
   mutate(days = as.numeric(days)) %>% 
   arrange(days) %>%
  mutate(diff = confirm - lag(confirm, default = first(confirm)))%>% 
-    filter(days!=-1) 
-#%>% 
-#  select(days,state,diff) %>% 
-#  pivot_wider(
-#    values_from = diff,
-#    names_from = days
-#  )
+    filter(days!=-1) %>% 
+  select(days,state,diff) %>% 
+  pivot_wider(
+    values_from = diff,
+    names_from = days
+  )
   
     
 
