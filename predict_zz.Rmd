@@ -10,17 +10,29 @@ library(EpiDynamics)
 ```
 
 ```{r}
-parameters = list(beta = 2.2,
+parameters = list(beta = 2.47,
                   sigma = 0.192, gamma = 0.434,
                   mu = 0.00005)
 initials = c(S = 0.8,
              E = 0.2,
              I = 0,
              R = 0)
-seir = SEIR(pars = parameters,init = initials, time = 0:50) # time unit is day
+seir = SEIR(pars = parameters,init = initials, time = 0:60) # time unit is day
 PlotMods(seir)
 ```
 
+```{r}
+parameters.2 = list(beta = 2.47*0.5,
+                  sigma = 0.192, gamma = 0.434,
+                  mu = 0.00005
+                  )
+initials = c(S = 0.8,
+             E = 0.2,
+             I = 0,
+             R = 0)
+seir.2 = SEIR(pars = parameters.2,init = initials, time = 0:60) # time unit is day
+PlotMods(seir.2)
+```
 
 
 
