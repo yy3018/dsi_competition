@@ -10,15 +10,35 @@ library(EpiDynamics)
 ```
 
 ```{r}
-parameters = list(beta = 5.7,
-                  sigma = 0.125, gamma = 0.2,
-                  mu = 0.00005,
-                  n = 0.73)
-initials = c(S = 0.05,
-             E = 0.0001,
-             I = 0.0001,
-             R = 0.0298)
+parameters = list(beta = 2.5,
+                  sigma = 0.0101, gamma = 0.2,
+                  mu = 0.00005)
+initials = c(S = 1,
+             E = 0,
+             I = 0,
+             R = 0)
 seir = SEIR(pars = parameters,init = initials, time = 0:(60*365))
 PlotMods(seir)
+```
+
+```{r}
+confirm = read.csv("confirm.csv")
+covid.19.us = read.csv("covid_19_data.csv") %>% 
+  janitor::clean_names() %>% 
+  filter(country_region == "US")
+```
+
+```{r}
+population = read_csv("./population.csv") %>% 
+  separate(state,into = c("dot", "state"), sep = 1) %>% 
+  select(-dot) %>% 
+  drop_na() %>% 
+  mutate(state = ifelse(state == "uerto Rico", "Puerto Rico",state))
+```
+
+```{r}
+confirm %>% 
+
+proportion = cbind(confirm, population)
 ```
 
