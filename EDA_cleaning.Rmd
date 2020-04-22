@@ -47,7 +47,7 @@ final1 = cbind(data1,date_check) %>%
   group_by(date,state) %>% 
   summarise(confirm = sum(confirmed)) %>% as.data.frame()
 
-stay_home_time = read.csv("stay_home_time.csv") %>% 
+stay_home_time = read.csv("data/stay_home_time.csv") %>% 
   filter(time!="No" & time!="Regional") %>% 
   filter(state!=c("Kentucky","Massachusetts","Oklahoma")) %>% 
   mutate(
@@ -79,45 +79,6 @@ final$new=ifelse(final$new<0,0,final$new)
 
 write.csv(final,file="final.csv")
 ```
-
-
-
-```{r}
-#features <-  c('state',	'stay_home','traveler_quarantine', 'business_close',	'gathering_ban','school_close',	'bar_res_limits',	'election_postponment', 'emergency_declaration')
-#policy <- read_csv("policy.csv", col_names = TRUE)
-#policy <- policy[,2:10]
-#colnames(policy) <- features
-#policy <- policy %>% select(state:bar_res_limits)
-#write.csv(policy,file = 'policy.csv')
-
-
-```
-
-```{r}
-#us_confirm <- read_csv("us_confirm.csv") %>% select(Province_State, `1/22/20`:`4/19/20`)
-#colnames(us_confirm)[1] <- 'state'
-#us_confirm  <- us_confirm %>%  group_by(state) %>% summarise_each(funs(sum))
-#us_confirm  <- gather(us_confirm,date,confirmed,`1/22/20`:`4/19/20`)
-
-#us_confirm$date <- as.Date(us_confirm$date,"%m/%d/%Y")
-#write.csv(us_confirm,file = 'confirm.csv')
-
-```
-
-```{r}
-#p <- ggplot(us_confirm %>% filter(state=='New York'), aes(x=date, y=confirmed)) +
-#  geom_line() + 
-#  xlab("")
-#p
-```
-
-
-
-
-
-
-
-
 
 
 
