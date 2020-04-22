@@ -38,7 +38,7 @@ ui = fluidPage(
       
       numericInput("mu", 
                    h6("Mu"), 
-                   value = 0.00005),
+                   value = 0.0005),
       
       numericInput("s", 
                    h6("Susceptible"), 
@@ -56,9 +56,8 @@ ui = fluidPage(
                    h6("Removed/Recovered"), 
                    value = 0),
       
-      numericInput("day", 
-                   h6("Duration(day)"), 
-                   value = 60)
+      sliderInput("time", h6("Time/days"),
+                  min = 0, max = 300, value = 60)
       
     ),
     
@@ -74,9 +73,9 @@ ui = fluidPage(
 
 server = function(input, output) {
   output$curve = renderPlot({
-    parameters = list(input$beta, input$sigma, input$gamma, input$mu)
-    initials = c(input$s, input$e, input$i, input$r)
-    seir = SEIR(pars = parameters,init = initials, time = 0:input$day) # time unit is day
+    parameters = list(beta = input$beta, sigma = input$sigma, gamma = input$gamma, mu=input$mu)
+    initials = c(S=input$s, E=input$e, I=input$i, R=input$r)
+    seir = SEIR(pars = parameters,init = initials, time = 0:input$time) # time unit is day
     PlotMods(seir)
   })
 }
