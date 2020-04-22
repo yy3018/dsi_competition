@@ -8,6 +8,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(EpiDynamics)
 library(deSolve)
+library(plotly)
 ```
 
 ```{r}
@@ -79,9 +80,10 @@ vis = full_join(visual_data,visula_2) %>%
   mutate(group = as.factor(group))
 
 #I curve when beta is different
-vis %>% 
+fig1 = vis %>% 
   group_by(group) %>% 
-  ggplot(aes(x = time, y = I,group = group,color = group)) + geom_line()
+  ggplot(aes(x = time, y = I,color = group)) + geom_line()
+ggplotly(fig1)
 ```
 
 SEIR in one plot
@@ -101,8 +103,9 @@ vis_seir = visual_data %>%
     names_prefix = "p_",
     values_to = "proportion")
 
-vis_seir %>% 
+fig2 = vis_seir %>% 
   ggplot(aes(x = time, y = proportion,group = box,color = box)) + geom_line()
 
+ggplotly(fig2)
 ```
 
