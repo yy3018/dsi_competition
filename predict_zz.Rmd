@@ -7,6 +7,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(EpiDynamics)
+library(deSolve)
+library(plotly)
 ```
 
 ```{r}
@@ -19,7 +21,11 @@ initials = c(S = 0.8,
              R = 0)
 seir = SEIR(pars = parameters,init = initials, time = 0:60) # time unit is day
 PlotMods(seir)
+#seir$results
+#seir$model
+
 ```
+
 
 ```{r}
 parameters.2 = list(beta = 2.47*0.5,
@@ -35,6 +41,71 @@ PlotMods(seir.2)
 ```
 
 
+use ggplot to draw the plot
+```{r}
+#use ggplot to draw the plot
+function2 <- function(time, init, pars) {
+        with(as.list(c(init, pars)), {
+            dS = mu - S * (beta * I + mu)
+            dE = beta * S * I - E * (sigma + mu)
+            dI = sigma * E - I * (gamma + mu)
+            dR = gamma * I - mu * R
+            list(c(dS, dE, dI, dR))
+        })
+}
 
+parameters = list(beta = 2.47,
+                  sigma = 0.192, gamma = 0.434,
+                  mu = 0.00005)
 
+time = 0:60
+
+initials = c(S = 0.9,
+             E = 0.0001,
+             I = 0,
+             R = 1-0.9-0.0001)
+```
+
+Flat the curve
+```{r}
+#falt the curve
+output <- ode(times = time, func = function2, y = initials, parms = parameters)  #without social distance
+output.2 = ode(times = time, func = function2, y = initials, parms = parameters.2) #with social distance
+    
+visual_data = as.data.frame(output) %>% 
+  mutate(group = 1)
+visula_2 = as.data.frame(output.2) %>% 
+  mutate(group = 2)
+vis = full_join(visual_data,visula_2) %>% 
+  mutate(group = as.factor(group))
+
+#I curve when beta is different
+fig1 = vis %>% 
+  group_by(group) %>% 
+  ggplot(aes(x = time, y = I,color = group)) + geom_line()
+ggplotly(fig1)
+```
+
+SEIR in one plot
+```{r}
+#SEIR in one plot
+vis_seir = visual_data %>% 
+  mutate(
+    p_S = S,
+    p_E = E,
+    p_I = I,
+    p_R = R
+  ) %>% 
+  select(time,p_S, p_E, p_I, p_R) %>% 
+  pivot_longer(
+    p_S:p_R,
+    names_to = "box", 
+    names_prefix = "p_",
+    values_to = "proportion")
+
+fig2 = vis_seir %>% 
+  ggplot(aes(x = time, y = proportion,group = box,color = box)) + geom_line()
+
+ggplotly(fig2)
+```
 
