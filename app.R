@@ -50,14 +50,12 @@ u <- fluidPage(
       column(4,plotOutput(outputId = "distPlot")),
       column(4,plotOutput(outputId = "distPlot2"))
       
-      
     ),
   
   fluidRow(
     
     column(4,tableOutput(outputId = "tb1")),
     column(4,tableOutput(outputId = "tb2"))
-    
     
   ))
 
@@ -87,7 +85,6 @@ s <- function(input, output) {
   
   
 
-  
   # Display statistical output
   
   output$tb1 <- renderTable({
