@@ -60,7 +60,7 @@ parameters = list(beta = 2.47,
 
 time = 0:60
 
-initials = c(S = 0.9,
+initials = c(S = 0.9999,
              E = 0.0001,
              I = 0,
              R = 1-0.9-0.0001)
@@ -99,12 +99,15 @@ vis_seir = visual_data %>%
   select(time,p_S, p_E, p_I, p_R) %>% 
   pivot_longer(
     p_S:p_R,
-    names_to = "box", 
+    names_to = "group", 
     names_prefix = "p_",
     values_to = "proportion")
 
 fig2 = vis_seir %>% 
-  ggplot(aes(x = time, y = proportion,group = box,color = box)) + geom_line()
+  ggplot(aes(x = time, y = proportion, group = group,color = group)) + 
+  geom_line()+
+  theme_bw(position = "bottom")+
+  legend()
 
 ggplotly(fig2)
 ```
