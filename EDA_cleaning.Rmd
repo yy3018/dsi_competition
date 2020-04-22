@@ -5,6 +5,7 @@ output: pdf_document
 
 ```{r}
 library(tidyverse)
+
 ```
 
 ```{r}
@@ -65,29 +66,18 @@ final = cbind(final_all,days) %>%
   filter(days>=-1) %>% 
   select(state,confirm,days) %>%
   mutate(days = as.numeric(days)) %>% 
-  arrange(days)  %>% 
-  as.data.frame() %>% 
-  pivot_longer(
-    -state,
-    values_to = "confirm",
-    names_to = "days"
-  ) %>% 
   group_by(state) %>% 
-  mutate(days = as.numeric(days)) %>% 
   arrange(days) %>%
  mutate(diff = confirm - lag(confirm, default = first(confirm)))%>% 
     filter(days!=-1) %>% 
-  select(days,state,diff) %>% 
-  pivot_wider(
-    values_from = diff,
-    names_from = days
-  )
-  
-    
+  rename("new"="diff") %>% 
+  select(days,state,new)
+
+final$new=ifelse(final$new<0,0,final$new)
 
 
 
-
+write.csv(final,file="final.csv")
 ```
 
 
