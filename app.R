@@ -149,21 +149,18 @@ server <- function(input, output){
     )
     
 
-    data.frame(Result=c("Least baseline",
-                        "Highest baseline",
-                        "Fastest decrasing trend since the order",
-                        "Slowest decrasing trend since the order",
-                        "Fastest decrasing trend overall",
-                        "Slowest decrasing trend overall",
-                        "Number of states with decreasing trend"
+    data.frame(Result=c("Amount of states selected",
+                        "Number of states with decreasing trend",
+                        "Number of states with increasing trend",
+                        "Decreasing mostly over time",
+                        "Decreasing slowest over time"
                         ),
-               Value=c(model_df()[which.min(model_df()$bl),'state'],
-                       model_df()[which.max(model_df()$bl),'state'],
-                       model_df()[which.min(model_df()$days),'state'],
-                       model_df()[which.max(model_df()$days),'state'],
+               Value=c(length(model_df()$days),
+                       length(which((model_df()$days+model_df()$gl_days)<0)),
+                       length(which((model_df()$days+model_df()$gl_days)>0)),
                        model_df()[which.min(model_df()$overall_trend),'state'],
-                       model_df()[which.max(model_df()$overall_trend),'state'],
-                       length(which(model_df()$days<0)))
+                       model_df()[which.max(model_df()$overall_trend),'state']
+                       )
                )
     
   })
