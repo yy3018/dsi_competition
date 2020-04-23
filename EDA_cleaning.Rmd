@@ -75,8 +75,6 @@ final = cbind(final_all,days) %>%
 
 final$new=ifelse(final$new<0,0,final$new)
 
-
-
 write.csv(final,file="final.csv")
 ```
 

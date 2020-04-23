@@ -46,28 +46,34 @@ ui <- fluidPage(
   
   theme = "united",
   titlePanel("Stay-at-Home Order Evaluation"),
-  fluidRow(
+  sidebarPanel(
     checkboxGroupInput("states", label = h3("States"), 
-                         choices = c("All",unique(sampleD$state)),
-                         selected = 'All',
-                         inline = TRUE)
-    ),
+                       choices = c("All",unique(sampleD$state)),
+                       selected = 'All',
+                       inline = T),
+    width = 2
+  ),
 
-  fluidRow(
-
-      column(4,plotlyOutput(outputId = "distPlot")),
-      column(5,plotlyOutput(outputId = "distPlot2"))
+ mainPanel(
+   fluidRow(
+  
+    splitLayout(cellWidths = c("40%","60%"),
+                plotlyOutput(outputId = "distPlot"),
+                plotlyOutput(outputId = "distPlot2"))
       
       
     ),
   
   fluidRow(
     
-    column(4,DTOutput(outputId = "tb1")),
-    column(4,tableOutput(outputId = "tb2"))
-  )
+    column(5,DTOutput(outputId = "tb1")),
+    column(7,tableOutput(outputId = "tb2"))
+    
+   
+  ),
+  width=10
   
-)
+))
 
 server <- function(input, output){
   
@@ -110,7 +116,7 @@ server <- function(input, output){
       ggplotly(ggplot(data = df(),aes(x=days,y=cumsum(new),group=state,color=state)) + 
                  labs(x='Days since stay-at-home order',y='Cumulative Cases')+
                  geom_line()+
-                 geom_point()+ 
+                 geom_point(size=1)+ 
                  theme(legend.position = "none"))
       
   })
@@ -125,7 +131,7 @@ server <- function(input, output){
     ggplotly(ggplot(data = df(),aes(x=days,y=new,group=state,color=state)) + 
       labs(x='Days since stay-at-home order',y='New Cases')+
       geom_line()+
-      geom_point())
+      geom_point(size=1))
     
   })
   
@@ -148,14 +154,16 @@ server <- function(input, output){
                         "Fastest decrasing trend since the order",
                         "Slowest decrasing trend since the order",
                         "Fastest decrasing trend overall",
-                        "Slowest decrasing trend overall"
+                        "Slowest decrasing trend overall",
+                        "Number of states with decreasing trend"
                         ),
                Value=c(model_df()[which.min(model_df()$bl),'state'],
                        model_df()[which.max(model_df()$bl),'state'],
                        model_df()[which.min(model_df()$days),'state'],
                        model_df()[which.max(model_df()$days),'state'],
                        model_df()[which.min(model_df()$overall_trend),'state'],
-                       model_df()[which.max(model_df()$overall_trend),'state'])
+                       model_df()[which.max(model_df()$overall_trend),'state'],
+                       length(which(model_df()$days<0)))
                )
     
   })
