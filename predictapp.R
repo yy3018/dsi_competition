@@ -62,7 +62,7 @@ ui = fluidPage(
         column(7, plotlyOutput("curve2", width = "100%", height = "250px")),
         column(5, h4(strong("Model Results:")),
                   div("When more social distancing takes place through the population (i.e. beta decreases), 
-                      we can see the flattening effect. For instance, when beta decreases 0.48 from 0.741, 
+                      we can see the flattening effect. For instance, when beta decreases 0.48 from 0.741 (the fixed beta of B-curve", tags$a(href="https://www.ncbi.nlm.nih.gov/pubmed/32046819", "[1]"),"), 
                       the peak of A-curve meets the healthcare system capacity which is considered to be capable to cover 5% of population.
                       From this result, we reveal the effect of social distancing."))
       )
