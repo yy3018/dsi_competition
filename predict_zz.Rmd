@@ -9,6 +9,7 @@ library(tidyverse)
 library(EpiDynamics)
 library(deSolve)
 library(plotly)
+library(gganimate)
 ```
 
 ```{r}
@@ -82,7 +83,10 @@ vis = full_join(visual_data,visula_2) %>%
 #I curve when beta is different
 fig1 = vis %>% 
   group_by(group) %>% 
-  ggplot(aes(x = time, y = I,color = group)) + geom_line()
+  ggplot(aes(x = time, y = I,color = group, fill = group)) + 
+  geom_line()+
+  geom_hline(yintercept=0.1)+
+  annotate("text", x=20, y=0.12, label="Healthcare system capacity") 
 ggplotly(fig1)
 ```
 
@@ -106,9 +110,15 @@ vis_seir = visual_data %>%
 fig2 = vis_seir %>% 
   ggplot(aes(x = time, y = proportion, group = group,color = group)) + 
   geom_line()+
-  theme_bw(position = "bottom")+
-  legend()
+  theme_bw()+
+  scale_color_discrete(breaks = c('S','E','I','R'))+
+      guides(color=guide_legend(title=NULL))+
+      theme(legend.text = element_text(angle = 45, size = 10, hjust = 3, vjust = 3))
 
 ggplotly(fig2)
+```
+
+```{r}
+
 ```
 
