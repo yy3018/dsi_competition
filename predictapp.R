@@ -8,7 +8,7 @@ library(plotly)
 ui = fluidPage(
   theme = "united",
   # App title ----
-  titlePanel(h2("Social Distancing Effect - Create an SEIR Model Yourself!")),
+  titlePanel(h2("Stay-at-home Effect - Create an SEIR Model Yourself!")),
   
   # Sidebar layout with input and output definitions ----
   sidebarLayout(
@@ -36,7 +36,7 @@ ui = fluidPage(
                    value = 0))),
       
       sliderInput("beta_change", 
-                   h6("Decrease in Beta (i.e. with social distancing)"), 
+                   h6("Decrease in Beta (i.e. with Stay-at-home order)"), 
                    min = 0, max = 1, value = 0.48),
       sliderInput("capacity", 
                   h6("Healthcare System Capacity"), 
@@ -55,16 +55,16 @@ ui = fluidPage(
                  div(strong("Gamma:"), " the inverse of the mean infectious period (set as 0.153)",tags$a(href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7139011/", "[2]")),
                  div(strong("Mu:"), " the per capita death rate regardless of decease (set as 0.007)"),
                  div(strong("SEIR:"), "susceptible, exposed, infected and recoverd/removed."),
-                div(strong("A/B:"),"after/before social distancing."))
+                div(strong("A/B:"),"after/before stay-at-home order."))
       ),
       
       fluidRow(
         column(7, plotlyOutput("curve2", width = "100%", height = "250px")),
         column(5, h4(strong("Model Results:")),
-                  div("When more social distancing takes place through the population (i.e. beta decreases), 
+                  div("When more stay-at-home action takes place through the population (i.e. beta decreases), 
                       we can see the flattening effect. For instance, when beta decreases 0.48 from 0.741 (the fixed beta of B-curve", tags$a(href="https://www.ncbi.nlm.nih.gov/pubmed/32046819", "[1]"),"), 
                       the peak of A-curve meets the healthcare system capacity which is considered to be capable to cover 5% of population.
-                      From this result, we reveal the effect of social distancing."))
+                      From this result, we reveal the effect of stay-at-home order."))
       )
       
     )
@@ -159,7 +159,7 @@ server = function(input, output) {
       ggplot(aes(x = time, y = I,color = group)) + 
       geom_line()+
       theme_bw()+
-      labs(x = "Time(days)", y="Infected Population Proportion", title = "Fig.2 COVID-19 SEIR Model with Social Distancing")+
+      labs(x = "Time(days)", y="Infected Population Proportion", title = "Fig.2 COVID-19 SEIR Model with Stay-at-home Order")+
       geom_hline(yintercept=input$capacity, color = "red", linetype="dashed", size=1)+
       annotate("text", x=input$time*2/3, y=input$capacity+0.007, label="Healthcare system capacity", size = 3, color = "red")+
       theme(plot.title = element_text(size=10, hjust = 0.5),
