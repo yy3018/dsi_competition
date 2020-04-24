@@ -8,9 +8,8 @@ library(plotly)
 library(DT)
 
 # Data import
-#sampleD <- read_csv("sampleD.csv")[,2:4]
-sampleD <- read_csv("final.csv")[,2:4]
-stay_home_time <- read_csv("data/stay_home_time.csv")
+sampleD <- read_csv("confirm_num.csv")[,2:4]
+stay_home_time <- read_csv("stay_home_time.csv")
 
 
 # Model
